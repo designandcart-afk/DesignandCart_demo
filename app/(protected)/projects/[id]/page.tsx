@@ -6,16 +6,18 @@ import { useMemo, useState } from "react";
 import {
   demoProjects,
   demoRenders,
-  demoChat,
   demoProducts,
   demoProjectProducts,
-  demoFiles,
-} from "@/lib/demoData";
+} from '@/lib/demoData';
+
 import { Button, Badge, Input } from "@/components/UI";
 import { MessageCircle, ClipboardList, FolderOpen } from "lucide-react";
 import AreaModal from "@/components/AreaModal";
 import CenterModal from "@/components/CenterModal";
 import ChatMessage from "@/components/chat/ChatMessage";
+// Temporary fallbacks so build succeeds (replace later with real data)
+const demoChat: any[] = [];
+const demoFiles: any[] = [];
 
 export default function ProjectDetailPage() {
   const params = useParams<{ id: string }>();
