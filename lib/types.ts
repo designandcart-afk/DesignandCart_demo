@@ -1,0 +1,1 @@
+export type Project={id:string;title:string;scope:'1BHK'|'2BHK'|'3BHK'|'Commercial';status:'wip'|'screenshots_shared'|'approved'|'renders_shared'|'delivering'|'delivered';address:string;notes?:string};
