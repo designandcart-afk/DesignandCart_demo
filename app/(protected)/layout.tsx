@@ -1,9 +1,13 @@
-// app/(protected)/layout.tsx
-export default function ProtectedLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // If you want different chrome for protected pages, add it here.
+import { ReactNode } from "react";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+
+export default async function ProtectedLayout({ children }: { children: ReactNode }) {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) redirect("/login");
   return <>{children}</>;
 }
